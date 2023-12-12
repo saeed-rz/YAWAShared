@@ -1,0 +1,10 @@
+[versions]
+ios-summary = "YAWA shared"
+ios-authors = "saeed.rz"
+ios-deployment-target = "14.0"
+ios-basename = "shared"
+
+[libraries]
+
+[plugins]
+
