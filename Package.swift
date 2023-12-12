@@ -1,21 +1,21 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.9
 import PackageDescription
 
 let package = Package(
-    name: "shared",
+    name: "YAWAShared",
     platforms: [
         .iOS(.v13)
     ],
     products: [
         .library(
-            name: "shared",
-            targets: ["shared"]
+            name: "YAWAShared",
+            targets: ["YAWAShared"]
         ),
     ],
     targets: [
         .binaryTarget(
-            name: "shared",
-            path: "./shared.xcframework"
+            name: "YAWAShared",
+            path: "./release/YAWAShared.xcframework"
         ),
     ]
 )

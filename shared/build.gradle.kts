@@ -38,11 +38,9 @@ kotlin {
         framework {
             baseName = iosStrings.basename.get()
             isStatic = false
-            transitiveExport = true
-//            embedBitcode(BITCODE)
         }
         specRepos {
-//            url("https://github.com/user/repo.git") // Use your repo here
+            url("https://github.com/saeed-rz/YAWAShared.git")
         }
         publishDir = rootProject.file("./")
     }
