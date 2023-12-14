@@ -1,20 +1,20 @@
 Pod::Spec.new do |spec|
-    spec.name                     = 'shared'
+    spec.name                     = 'YAWAShared'
     spec.version                  = '0.0.1'
     spec.homepage                 = ''
     spec.source                   = { :http=> ''}
     spec.authors                  = 'saeed.rz'
     spec.license                  = ''
     spec.summary                  = 'YAWA shared'
-    spec.vendored_frameworks      = 'build/cocoapods/framework/shared.framework'
+    spec.vendored_frameworks      = 'build/cocoapods/framework/YAWAShared.framework'
     spec.libraries                = 'c++'
     spec.ios.deployment_target = '14.0'
                 
                 
-    if !Dir.exist?('build/cocoapods/framework/shared.framework') || Dir.empty?('build/cocoapods/framework/shared.framework')
+    if !Dir.exist?('build/cocoapods/framework/YAWAShared.framework') || Dir.empty?('build/cocoapods/framework/YAWAShared.framework')
         raise "
 
-        Kotlin framework 'shared' doesn't exist yet, so a proper Xcode project can't be generated.
+        Kotlin framework 'YAWAShared' doesn't exist yet, so a proper Xcode project can't be generated.
         'pod install' should be executed after running ':generateDummyFramework' Gradle task:
 
             ./gradlew :shared:generateDummyFramework
@@ -24,12 +24,12 @@ Pod::Spec.new do |spec|
                 
     spec.pod_target_xcconfig = {
         'KOTLIN_PROJECT_PATH' => ':shared',
-        'PRODUCT_MODULE_NAME' => 'shared',
+        'PRODUCT_MODULE_NAME' => 'YAWAShared',
     }
                 
     spec.script_phases = [
         {
-            :name => 'Build shared',
+            :name => 'Build YAWAShared',
             :execution_position => :before_compile,
             :shell_path => '/bin/sh',
             :script => <<-SCRIPT

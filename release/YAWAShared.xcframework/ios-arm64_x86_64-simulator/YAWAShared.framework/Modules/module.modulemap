@@ -1,0 +1,6 @@
+framework module YAWAShared {
+    umbrella header "YAWAShared.h"
+
+    export *
+    module * { export * }
+}
