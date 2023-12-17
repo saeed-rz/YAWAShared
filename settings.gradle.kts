@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "YAWA"
 include(":shared")
+include(":openWeather")

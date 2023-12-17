@@ -6,7 +6,7 @@
 #import <Foundation/NSString.h>
 #import <Foundation/NSValue.h>
 
-@protocol YAWASPlatform;
+@protocol YAWASPlatform, YAWASPlatform_;
 
 NS_ASSUME_NONNULL_BEGIN
 #pragma clang diagnostic push
@@ -164,10 +164,38 @@ __attribute__((swift_name("IOSPlatform")))
 @property (readonly) NSString *name __attribute__((swift_name("name")));
 @end
 
+__attribute__((swift_name("Platform_")))
+@protocol YAWASPlatform_
+@required
+@property (readonly) NSString *name __attribute__((swift_name("name")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("IOSPlatform_")))
+@interface YAWASIOSPlatform_ : YAWASBase <YAWASPlatform_>
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+@property (readonly) NSString *name __attribute__((swift_name("name")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("OpenWeatherAPI")))
+@interface YAWASOpenWeatherAPI : YAWASBase
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (NSString *)getCurrentWeatherData __attribute__((swift_name("getCurrentWeatherData()")));
+@end
+
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("Platform_iosKt")))
 @interface YAWASPlatform_iosKt : YAWASBase
 + (id<YAWASPlatform>)getPlatform __attribute__((swift_name("getPlatform()")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Platform_iosKt_")))
+@interface YAWASPlatform_iosKt_ : YAWASBase
++ (id<YAWASPlatform_>)getPlatform __attribute__((swift_name("getPlatform()")));
 @end
 
 #pragma pop_macro("_Nullable_result")
