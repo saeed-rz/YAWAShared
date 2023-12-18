@@ -24,7 +24,9 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             export(libs.kotlin.stdlib)
+            export(project(":openWeather"))
             xcf.add(this)
+
             baseName = iosStrings.basename.get()
         }
     }
@@ -36,6 +38,7 @@ kotlin {
         version = libs.versions.library.version.get()
         ios.deploymentTarget = iosStrings.deployment.target.get()
         framework {
+            export(project(":openWeather"))
             baseName = iosStrings.basename.get()
             isStatic = false
         }
@@ -47,7 +50,7 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            //put your multiplatform dependencies here
+            api(project(":openWeather"))
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
