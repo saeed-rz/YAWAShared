@@ -9,7 +9,7 @@ import io.ktor.serialization.kotlinx.json.*
 import saeedrz.yawa.openweather.data.WeatherData
 
 class OpenWeatherAPI {
-    private val client = HttpClient(CIO) {
+    private val client = HttpClient() {
         install(ContentNegotiation) {
             json()
         }
