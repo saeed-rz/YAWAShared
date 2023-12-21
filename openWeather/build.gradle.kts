@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.kotlinSerialization)
 }
 
 kotlin {
@@ -26,6 +27,9 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(libs.ktor.client.core)
+            implementation(libs.ktor.serialization.json)
+            implementation(libs.ktor.client.cio)
+            implementation(libs.ktor.client.content.negotiation)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
