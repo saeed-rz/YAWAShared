@@ -6,13 +6,16 @@ import io.ktor.client.engine.cio.CIO
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.request.get
 import io.ktor.serialization.kotlinx.json.*
+import kotlinx.serialization.json.Json
 import saeedrz.yawa.openweather.data.GeoData
 import saeedrz.yawa.openweather.data.WeatherData
 
 class OpenWeatherAPI {
     private val client = HttpClient() {
         install(ContentNegotiation) {
-            json()
+            json(Json {
+                ignoreUnknownKeys = true
+            })
         }
     }
 
