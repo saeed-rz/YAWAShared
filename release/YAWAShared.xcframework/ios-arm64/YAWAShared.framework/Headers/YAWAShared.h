@@ -262,9 +262,9 @@ __attribute__((swift_name("Coord.Companion")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("GeoData")))
 @interface YAWASGeoData : YAWASBase
-- (instancetype)initWithName:(NSString *)name lat:(double)lat lon:(double)lon country:(NSString *)country state:(NSString *)state __attribute__((swift_name("init(name:lat:lon:country:state:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithName:(NSString *)name lat:(double)lat lon:(double)lon country:(NSString *)country state:(NSString * _Nullable)state __attribute__((swift_name("init(name:lat:lon:country:state:)"))) __attribute__((objc_designated_initializer));
 @property (class, readonly, getter=companion) YAWASGeoDataCompanion *companion __attribute__((swift_name("companion")));
-- (YAWASGeoData *)doCopyName:(NSString *)name lat:(double)lat lon:(double)lon country:(NSString *)country state:(NSString *)state __attribute__((swift_name("doCopy(name:lat:lon:country:state:)")));
+- (YAWASGeoData *)doCopyName:(NSString *)name lat:(double)lat lon:(double)lon country:(NSString *)country state:(NSString * _Nullable)state __attribute__((swift_name("doCopy(name:lat:lon:country:state:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
@@ -272,7 +272,7 @@ __attribute__((swift_name("GeoData")))
 @property (readonly) double lat __attribute__((swift_name("lat")));
 @property (readonly) double lon __attribute__((swift_name("lon")));
 @property (readonly) NSString *name __attribute__((swift_name("name")));
-@property (readonly) NSString *state __attribute__((swift_name("state")));
+@property (readonly) NSString * _Nullable state __attribute__((swift_name("state")));
 @end
 
 __attribute__((objc_subclassing_restricted))
