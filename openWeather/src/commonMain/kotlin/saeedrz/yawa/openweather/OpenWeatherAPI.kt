@@ -21,6 +21,6 @@ class OpenWeatherAPI {
     }
 
     suspend fun searchCity(searchTerm: String, appId: String): List<GeoData> {
-        return client.get("http://api.openweathermap.org/geo/1.0/direct?q=$searchTerm&limit=5&appid=$appId").body<List<GeoData>>()
+        return client.get("https://api.openweathermap.org/geo/1.0/direct?q=$searchTerm&limit=5&appid=$appId").body<List<GeoData>>()
     }
 }
