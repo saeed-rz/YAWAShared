@@ -6,7 +6,7 @@
 #import <Foundation/NSString.h>
 #import <Foundation/NSValue.h>
 
-@class YAWASWeatherData, YAWASCloudsCompanion, YAWASClouds, YAWASCoordCompanion, YAWASCoord, YAWASMainCompanion, YAWASMain, YAWASSysCompanion, YAWASSys, YAWASWeatherCompanion, YAWASWeather, YAWASWind, YAWASWeatherDataCompanion, YAWASWindCompanion, YAWASKotlinThrowable, YAWASKotlinArray<T>, YAWASKotlinException, YAWASKotlinRuntimeException, YAWASKotlinIllegalStateException, YAWASKotlinx_serialization_coreSerializersModule, YAWASKotlinx_serialization_coreSerialKind, YAWASKotlinNothing;
+@class YAWASWeatherData, YAWASGeoData, YAWASCloudsCompanion, YAWASClouds, YAWASCoordCompanion, YAWASCoord, YAWASGeoDataCompanion, YAWASMainCompanion, YAWASMain, YAWASSysCompanion, YAWASSys, YAWASWeatherCompanion, YAWASWeather, YAWASWind, YAWASWeatherDataCompanion, YAWASWindCompanion, YAWASKotlinThrowable, YAWASKotlinArray<T>, YAWASKotlinException, YAWASKotlinRuntimeException, YAWASKotlinIllegalStateException, YAWASKotlinx_serialization_coreSerializersModule, YAWASKotlinx_serialization_coreSerialKind, YAWASKotlinNothing;
 
 @protocol YAWASPlatform, YAWASPlatform_, YAWASKotlinx_serialization_coreKSerializer, YAWASKotlinx_serialization_coreEncoder, YAWASKotlinx_serialization_coreSerialDescriptor, YAWASKotlinx_serialization_coreSerializationStrategy, YAWASKotlinx_serialization_coreDecoder, YAWASKotlinx_serialization_coreDeserializationStrategy, YAWASKotlinIterator, YAWASKotlinx_serialization_coreCompositeEncoder, YAWASKotlinAnnotation, YAWASKotlinx_serialization_coreCompositeDecoder, YAWASKotlinx_serialization_coreSerializersModuleCollector, YAWASKotlinKClass, YAWASKotlinKDeclarationContainer, YAWASKotlinKAnnotatedElement, YAWASKotlinKClassifier;
 
@@ -191,6 +191,12 @@ __attribute__((swift_name("OpenWeatherAPI")))
  * Other uncaught Kotlin exceptions are fatal.
 */
 - (void)getCurrentWeatherDataLat:(double)lat lon:(double)lon appId:(NSString *)appId completionHandler:(void (^)(YAWASWeatherData * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("getCurrentWeatherData(lat:lon:appId:completionHandler:)")));
+
+/**
+ * @note This method converts instances of CancellationException to errors.
+ * Other uncaught Kotlin exceptions are fatal.
+*/
+- (void)searchCitySearchTerm:(NSString *)searchTerm appId:(NSString *)appId completionHandler:(void (^)(NSArray<YAWASGeoData *> * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("searchCity(searchTerm:appId:completionHandler:)")));
 @end
 
 
@@ -245,6 +251,37 @@ __attribute__((swift_name("Coord.Companion")))
 + (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
 + (instancetype)companion __attribute__((swift_name("init()")));
 @property (class, readonly, getter=shared) YAWASCoordCompanion *shared __attribute__((swift_name("shared")));
+- (id<YAWASKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end
+
+
+/**
+ * @note annotations
+ *   kotlinx.serialization.Serializable
+*/
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("GeoData")))
+@interface YAWASGeoData : YAWASBase
+- (instancetype)initWithName:(NSString *)name lat:(double)lat lon:(double)lon country:(NSString *)country state:(NSString * _Nullable)state __attribute__((swift_name("init(name:lat:lon:country:state:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) YAWASGeoDataCompanion *companion __attribute__((swift_name("companion")));
+- (YAWASGeoData *)doCopyName:(NSString *)name lat:(double)lat lon:(double)lon country:(NSString *)country state:(NSString * _Nullable)state __attribute__((swift_name("doCopy(name:lat:lon:country:state:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) NSString *country __attribute__((swift_name("country")));
+@property (readonly) double lat __attribute__((swift_name("lat")));
+@property (readonly) double lon __attribute__((swift_name("lon")));
+@property (readonly) NSString *name __attribute__((swift_name("name")));
+@property (readonly) NSString * _Nullable state __attribute__((swift_name("state")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("GeoData.Companion")))
+@interface YAWASGeoDataCompanion : YAWASBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) YAWASGeoDataCompanion *shared __attribute__((swift_name("shared")));
 - (id<YAWASKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
 @end
 
